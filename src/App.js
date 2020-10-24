@@ -1,12 +1,19 @@
 import React, { Component } from "react";
 import "./App.css";
+import { store } from "./store";
+import { setActiveSessionAction, changeTimeAction } from "./actions";
 
 class App extends Component {
   render() {
-    const { days, hours, minutes, seconds, activeSession } = this.state;
+    const { days, hours, minutes, seconds, activeSession } = store.getState();
     const setActiveSession = (e) => {
-      this.setState({ activeSession: e.target.value });
+      store.dispatch(setActiveSessionAction(e.target.value));
     };
+
+    const changeTime = (e) => {
+      store.dispatch(changeTimeAction(e.target.dataset.type));
+    };
+
     return (
       <div className="App">
         <header>
