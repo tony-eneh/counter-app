@@ -2,17 +2,9 @@ import React, { Component } from "react";
 import "./App.css";
 
 class App extends Component {
-  state = {
-    days: 11,
-    hours: 31,
-    minutes: 27,
-    seconds: 11,
-    activeSession: "DAYS"
-  };
-
   render() {
     const { days, hours, minutes, seconds, activeSession } = this.state;
-    const setActiveSession = e => {
+    const setActiveSession = (e) => {
       this.setState({ activeSession: e.target.value });
     };
     return (
