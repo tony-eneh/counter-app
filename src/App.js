@@ -76,10 +76,18 @@ class App extends Component {
             </div>
           </main>
           <div className="App__buttons">
-            <button className="App__text--white" data-type="INCREASE_COUNTER">
+            <button
+              className="App__text--white"
+              data-type="INCREASE_COUNTER"
+              onClick={changeTime}
+            >
               INCREASE
             </button>
-            <button className="App__text--white" data-type="DECREASE_COUNTER">
+            <button
+              className="App__text--white"
+              data-type="DECREASE_COUNTER"
+              onClick={changeTime}
+            >
               DECREASE
             </button>
           </div>
