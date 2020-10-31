@@ -2,10 +2,15 @@ import React, { Component } from "react";
 import "./App.css";
 import { store } from "./store";
 import { setActiveSessionAction, changeTimeAction } from "./actions";
+import { connect } from "react-redux";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.props = props;
+  }
   render() {
-    const { days, hours, minutes, seconds, activeSession } = store.getState();
+    const { days, hours, minutes, seconds, activeSession } = this.props;
     const setActiveSession = (e) => {
       store.dispatch(setActiveSessionAction(e.target.value));
     };
@@ -97,4 +102,9 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => state;
+
+export default connect(mapStateToProps, {
+  setActiveSessionAction,
+  changeTimeAction,
+})(App);
