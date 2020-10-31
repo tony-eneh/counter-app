@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-import { store } from "./store";
 import { setActiveSessionAction, changeTimeAction } from "./actions";
 import { connect } from "react-redux";
 
@@ -10,13 +9,21 @@ class App extends Component {
     this.props = props;
   }
   render() {
-    const { days, hours, minutes, seconds, activeSession } = this.props;
+    const {
+      days,
+      hours,
+      minutes,
+      seconds,
+      activeSession,
+      setActiveSessionAction,
+      changeTimeAction,
+    } = this.props;
     const setActiveSession = (e) => {
-      store.dispatch(setActiveSessionAction(e.target.value));
+      setActiveSessionAction(e.target.value);
     };
 
     const changeTime = (e) => {
-      store.dispatch(changeTimeAction(e.target.dataset.type));
+      changeTimeAction(e.target.dataset.type);
     };
 
     return (
