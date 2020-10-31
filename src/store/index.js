@@ -1,5 +1,7 @@
 import { reducer } from "../reducers";
-import { createStore } from "redux";
+import { applyMiddleware, createStore } from "redux";
+import { loggingMiddleware } from "../middleware";
+import reduxLogger from "redux-logger";
 
 const initialState = {
   days: 11,
@@ -9,4 +11,8 @@ const initialState = {
   activeSession: "DAYS",
 };
 
-export const store = createStore(reducer, initialState);
+export const store = createStore(
+  reducer,
+  initialState,
+  applyMiddleware(loggingMiddleware, reduxLogger)
+);
